@@ -10,14 +10,24 @@
 
 @implementation NumberCell
 
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height)];
+        self.numberLabel.textAlignment = NSTextAlignmentCenter;
+        self.numberLabel.textColor = [UIColor blackColor];
+        self.numberLabel.font = [UIFont boldSystemFontOfSize:15.0];
+        self.numberLabel.backgroundColor = [UIColor whiteColor];
+        
+        [self.contentView addSubview:self.numberLabel];;
     }
     return self;
 }
+
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

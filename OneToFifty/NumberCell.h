@@ -10,6 +10,6 @@
 
 @interface NumberCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
+@property (strong, nonatomic) IBOutlet UILabel *numberLabel;
 
 @end

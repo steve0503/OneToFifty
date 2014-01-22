@@ -38,6 +38,16 @@
 
 @implementation ViewController
 
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    // TODO: Select Item
+}
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // TODO: Deselect item
+}
+
+
 //DataSource
 
 // 1
@@ -60,9 +70,18 @@
     
     cell.backgroundColor = [UIColor whiteColor];
     
-   cell.numberLabel.text = RandomNumbers[indexPath.row];
+    //cell.numberLabel.text = RandomNumbers[indexPath.row];
     
-  //  cell.numberLabel.text = @"Text";
+    
+      cell.numberLabel.text = [NSString stringWithFormat:@"%d", [[RandomNumbers objectAtIndex:indexPath.row] integerValue]];
+    
+    //cell.numberLabel.text = ;
+    
+ //   [[cell numberLabel] setText:RandomNumbers[indexPath.row]];
+    
+    
+    
+   // cell.numberLabel.text = @"Text";
     
     return cell;
 }
@@ -88,13 +107,9 @@
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
 
-
     return UIEdgeInsetsMake(10, 10, 10, 10);
     
-    
 }
-
-
 
 
 
@@ -127,13 +142,6 @@
 }
 
 
--(void)displayNumbers{
-    
-
-    
-    
-
-}
      
 - (void)updateTimer
 {
@@ -222,7 +230,9 @@
     
     }
     
-
+    
+    
+    
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
