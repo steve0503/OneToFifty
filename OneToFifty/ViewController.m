@@ -72,8 +72,36 @@
     
     //cell.numberLabel.text = RandomNumbers[indexPath.row];
     
+    if (indexPath.section == 0){
+        
+        
+        cell.numberLabel.text = [NSString stringWithFormat:@"%d", [[RandomNumbers objectAtIndex:indexPath.row] integerValue] +1];
+        
+        
+    }else if (indexPath.section == 1){
     
-      cell.numberLabel.text = [NSString stringWithFormat:@"%d", [[RandomNumbers objectAtIndex:indexPath.row] integerValue]];
+    
+        cell.numberLabel.text = [NSString stringWithFormat:@"%d", [[RandomNumbers objectAtIndex:indexPath.row+5] integerValue]+1];
+        
+   
+    }else if(indexPath.section == 2){
+    
+        cell.numberLabel.text = [NSString stringWithFormat:@"%d", [[RandomNumbers objectAtIndex:indexPath.row+10] integerValue]+1];
+    
+    
+    }else if(indexPath.section == 3){
+        
+        
+        cell.numberLabel.text = [NSString stringWithFormat:@"%d", [[RandomNumbers objectAtIndex:indexPath.row+15] integerValue]+1];
+        
+        
+    } else if(indexPath.section == 4){
+    
+        cell.numberLabel.text = [NSString stringWithFormat:@"%d", [[RandomNumbers objectAtIndex:indexPath.row+20] integerValue]+1];
+
+    }
+    
+    
     
     //cell.numberLabel.text = ;
     
@@ -179,10 +207,14 @@
         int r;
     
         while ([uniqueNumbers count] < MAX_NUM) {
+            
             r = arc4random() % [listOfNumbers count];
+            
             if (![uniqueNumbers containsObject:[listOfNumbers objectAtIndex:r]]) {
                 [uniqueNumbers addObject:[listOfNumbers objectAtIndex:r]];
             }
+            
+            
         }
     
     
