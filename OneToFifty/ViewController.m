@@ -26,6 +26,8 @@
 
 - (IBAction)onStartPressed:(id)sender;
 - (IBAction)onStopPressed:(id)sender;
+-(IBAction)onResetPressed:(id)sender;
+
 
 @end
 
@@ -39,6 +41,16 @@
 }
 
 
+-(IBAction)onResetPressed:(id)sender{
+    
+    [self.stopWatchTimer invalidate];
+    
+    self.stopWatchTimer = nil;
+    
+    self.timerLabel.text = @"00:00:00.000";
+    
+}
+
 - (IBAction)onStartPressed:(id)sender {
     self.startDate = [NSDate date];
     
@@ -50,6 +62,7 @@
                                                           repeats:YES];
 }
 
+     
 - (void)updateTimer
 {
     // Create date from the elapsed time
@@ -63,7 +76,10 @@
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
     
     // Format the elapsed time and set it to the label
+    
     NSString *timeString = [dateFormatter stringFromDate:timerDate];
+    
+    
     self.timerLabel.text = timeString;
 }
 
@@ -77,7 +93,7 @@
         }
         NSMutableArray *uniqueNumbers = [[NSMutableArray alloc] init];
         int r;
-        while ([uniqueNumbers count] < 25) {
+        while ([uniqueNumbers count] < MAX_NUM) {
             r = arc4random() % [listOfNumbers count];
             if (![uniqueNumbers containsObject:[listOfNumbers objectAtIndex:r]]) {
                 [uniqueNumbers addObject:[listOfNumbers objectAtIndex:r]];
@@ -87,9 +103,9 @@
     
     NSUInteger i = 0;
     
-    for (i = 0; i < 25 ; i++) {
+    for (i = 1; i < MAX_NUM ; i++) {
         
-        NSLog(@"RandomNumber:%d ",(NSUInteger)[[uniqueNumbers objectAtIndex:i] integerValue]);
+        NSLog(@"RandomNumber:%d ",(int)[[uniqueNumbers objectAtIndex:i] integerValue]);
         
     }
     
