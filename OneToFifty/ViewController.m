@@ -60,7 +60,9 @@
     
     cell.backgroundColor = [UIColor whiteColor];
     
-    cell.numberLabel.text = RandomNumbers[indexPath.row];
+   cell.numberLabel.text = RandomNumbers[indexPath.row];
+    
+  //  cell.numberLabel.text = @"Text";
     
     return cell;
 }
@@ -191,25 +193,36 @@
     return uniqueNumbers;
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    
+       [super viewWillAppear:YES];
+    
+  
+   
+    
+    [self.collectionView registerClass:[NumberCell class] forCellWithReuseIdentifier:@"CELL_ID"];
+    
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+  
+  
     RandomNumbers =  [self updateRandomNumbers];
-    
     
     NSInteger i = 0;
     
     for (i = 0; i < MAX_NUM ; i++) {
     
     NSLog(@"RandomNumber:%d ",(int)([[RandomNumbers objectAtIndex:i] integerValue]+1));
+        
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_cork@2x.png"]];
     
     }
     
-    
-    
-    [self.collectionView registerClass:[NumberCell class] forCellWithReuseIdentifier:@"CELL_ID"];
+
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
