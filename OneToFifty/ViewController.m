@@ -8,14 +8,18 @@
 
 #import "ViewController.h"
 
+#import "NumberCell.h"
+
 #define MAX_NUM 25
 
 
-@interface ViewController (){
+@interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
 
     NSMutableArray *RandomNumbers;
 
 }
+
 
 
 @property (strong, nonatomic) NSTimer *stopWatchTimer; // Store the timer that fires after a certain time
@@ -26,12 +30,74 @@
 
 - (IBAction)onStartPressed:(id)sender;
 - (IBAction)onStopPressed:(id)sender;
--(IBAction)onResetPressed:(id)sender;
+- (IBAction)onResetPressed:(id)sender;
 
+@property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation ViewController
+
+//DataSource
+
+// 1
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+  
+    return 5;
+}
+
+
+// 2
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 5;
+}
+
+
+// 3
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NumberCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"CELL_ID" forIndexPath:indexPath];
+    
+    cell.backgroundColor = [UIColor whiteColor];
+    
+    
+    cell.numberLabel.text = RandomNumbers[indexPath.row];
+    
+    
+
+    
+    return cell;
+}
+
+
+
+
+// CollectionViewLayOut
+
+// 1
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    CGSize retval =  CGSizeMake(20, 20);
+    
+    retval.height += 20;
+    
+    retval.width += 20;
+    
+    return retval;
+}
+
+// 3
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+
+
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+    
+    
+}
+
+
+
 
 
 - (IBAction)onStopPressed:(id)sender {
@@ -62,6 +128,14 @@
                                                           repeats:YES];
 }
 
+
+-(void)displayNumbers{
+    
+
+    
+    
+
+}
      
 - (void)updateTimer
 {
@@ -85,7 +159,7 @@
 
 
 
--(NSMutableArray *)getRandomNumbers {
+-(NSMutableArray *)updateRandomNumbers {
     
         NSMutableArray *listOfNumbers = [[NSMutableArray alloc] init];
         for (int i = 0 ; i < MAX_NUM ; ++i) {
@@ -101,13 +175,16 @@
         }
     
     
-    NSUInteger i = 0;
     
-    for (i = 1; i < MAX_NUM ; i++) {
+    
+    
+  //  NSUInteger i = 0;
+    
+  // for (i = 0; i < MAX_NUM ; i++) {
+   
+ //       NSLog(@"RandomNumber:%d ",(int)([[uniqueNumbers objectAtIndex:i] integerValue]+1));
         
-        NSLog(@"RandomNumber:%d ",(int)[[uniqueNumbers objectAtIndex:i] integerValue]);
-        
-    }
+//    }
     
     
     return uniqueNumbers;
@@ -118,8 +195,20 @@
 {
     [super viewDidLoad];
     
-    RandomNumbers =  [self getRandomNumbers];
+    RandomNumbers =  [self updateRandomNumbers];
     
+    
+      int i = 0;
+    
+      for (i = 0; i < MAX_NUM ; i++) {
+    
+       NSLog(@"RandomNumber:%d ",(int)([[RandomNumbers objectAtIndex:i] integerValue]+1));
+    
+      }
+    
+    
+    
+    [self.collectionView registerClass:[NumberCell class] forCellWithReuseIdentifier:@"CELL_ID"];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }

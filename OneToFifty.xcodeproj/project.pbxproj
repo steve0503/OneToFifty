@@ -21,6 +21,7 @@
 		00AA4D3F188F542000285152 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00AA4D21188F542000285152 /* UIKit.framework */; };
 		00AA4D47188F542000285152 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00AA4D45188F542000285152 /* InfoPlist.strings */; };
 		00AA4D49188F542000285152 /* OneToFiftyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AA4D48188F542000285152 /* OneToFiftyTests.m */; };
+		00AA4D57188F97D300285152 /* NumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AA4D56188F97D300285152 /* NumberCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		00AA4D44188F542000285152 /* OneToFiftyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OneToFiftyTests-Info.plist"; sourceTree = "<group>"; };
 		00AA4D46188F542000285152 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00AA4D48188F542000285152 /* OneToFiftyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneToFiftyTests.m; sourceTree = "<group>"; };
+		00AA4D55188F97D300285152 /* NumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberCell.h; sourceTree = "<group>"; };
+		00AA4D56188F97D300285152 /* NumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				00AA4D2C188F542000285152 /* AppDelegate.h */,
 				00AA4D2D188F542000285152 /* AppDelegate.m */,
 				00AA4D2F188F542000285152 /* Main.storyboard */,
+				00AA4D55188F97D300285152 /* NumberCell.h */,
+				00AA4D56188F97D300285152 /* NumberCell.m */,
 				00AA4D32188F542000285152 /* ViewController.h */,
 				00AA4D33188F542000285152 /* ViewController.m */,
 				00AA4D35188F542000285152 /* Images.xcassets */,
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00AA4D57188F97D300285152 /* NumberCell.m in Sources */,
 				00AA4D34188F542000285152 /* ViewController.m in Sources */,
 				00AA4D2E188F542000285152 /* AppDelegate.m in Sources */,
 				00AA4D2A188F542000285152 /* main.m in Sources */,
