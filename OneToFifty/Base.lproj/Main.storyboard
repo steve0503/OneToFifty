@@ -80,6 +80,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="numberCell" destination="JaY-Kj-5rj" id="ZR6-wp-j70"/>
                                             <outlet property="numberLabel" destination="JaY-Kj-5rj" id="kLQ-iR-1pY"/>
@@ -92,7 +93,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.25160347840000002" blue="0.28380456549999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.26182377639999999" green="0.78710440979999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="NHy-JB-zED" id="D3U-S3-ZdM"/>

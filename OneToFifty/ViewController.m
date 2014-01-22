@@ -60,11 +60,7 @@
     
     cell.backgroundColor = [UIColor whiteColor];
     
-    
     cell.numberLabel.text = RandomNumbers[indexPath.row];
-    
-    
-
     
     return cell;
 }
@@ -162,11 +158,16 @@
 -(NSMutableArray *)updateRandomNumbers {
     
         NSMutableArray *listOfNumbers = [[NSMutableArray alloc] init];
+    
         for (int i = 0 ; i < MAX_NUM ; ++i) {
+            
             [listOfNumbers addObject:[NSNumber numberWithInt:i]];
         }
+    
         NSMutableArray *uniqueNumbers = [[NSMutableArray alloc] init];
+    
         int r;
+    
         while ([uniqueNumbers count] < MAX_NUM) {
             r = arc4random() % [listOfNumbers count];
             if (![uniqueNumbers containsObject:[listOfNumbers objectAtIndex:r]]) {
@@ -198,13 +199,13 @@
     RandomNumbers =  [self updateRandomNumbers];
     
     
-      int i = 0;
+    NSInteger i = 0;
     
-      for (i = 0; i < MAX_NUM ; i++) {
+    for (i = 0; i < MAX_NUM ; i++) {
     
-       NSLog(@"RandomNumber:%d ",(int)([[RandomNumbers objectAtIndex:i] integerValue]+1));
+    NSLog(@"RandomNumber:%d ",(int)([[RandomNumbers objectAtIndex:i] integerValue]+1));
     
-      }
+    }
     
     
     
