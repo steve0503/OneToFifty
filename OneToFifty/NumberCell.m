@@ -19,7 +19,7 @@
         self.numberLabel.textAlignment = NSTextAlignmentCenter;
         self.numberLabel.textColor = [UIColor blackColor];
         self.numberLabel.font = [UIFont boldSystemFontOfSize:15.0];
-        self.numberLabel.backgroundColor = [UIColor whiteColor];
+        self.numberLabel.backgroundColor = [UIColor yellowColor];
         
         [self.contentView addSubview:self.numberLabel];;
     }

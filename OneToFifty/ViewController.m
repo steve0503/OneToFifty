@@ -72,6 +72,15 @@
     
     //cell.numberLabel.text = RandomNumbers[indexPath.row];
     
+    int i = indexPath.row;
+    
+    while (i < 5) {
+        i++;
+        
+        
+    }
+    
+    
     if (indexPath.section == 0){
         
         
